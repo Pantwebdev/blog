@@ -13,13 +13,13 @@ class BlogPostController extends Controller
     //
     public function index()
     {
-        $post = BlogPost::latest()->pagination(10);
-        return view('admin.post.index', compact('post'));
+        $posts = BlogPost::latest();
+        return view('admin.posts.index', compact('posts'));
     }
 
     public function create()
     {
-        return view('admin.post.create');
+        return view('admin.posts.create');
     }
 
     public function store(Request $request)
@@ -39,12 +39,12 @@ class BlogPostController extends Controller
             $data['image'] = $request->file('image')->store('posts');
         }
         BlogPost::created($data);
-        return redirect()->route('admin.post.index')->with("success", "Post Created Successfully!");
+        return redirect()->route('admin.posts.index')->with("success", "Post Created Successfully!");
     }
 
     public function edit(BlogPost $post)
     {
-        return view('admin.post.edit', compact('post'));
+        return view('admin.posts.edit', compact('post'));
     }
 
     public function update(Request $request, BlogPost $post)
