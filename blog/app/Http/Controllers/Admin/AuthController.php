@@ -21,7 +21,7 @@ class AuthController extends Controller
         $admin = Admin::where('email', $request->email)->first();
         if ($admin && Hash::check($request->password, $admin->password)) {
             session(['admin_id' => $admin->id]);
-            return redirect()->route('admin.posts.index');
+            return redirect()->route('posts.create');
         }
         return back()->withErrors(['Invalid credentials']);
     }

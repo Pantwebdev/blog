@@ -193,7 +193,8 @@
             <p class="text-white opacity-80">Sign in to your account</p>
         </div>
         
-        <form class="space-y-6" method="POST" action="{{route('admin.posts.create')}}">
+        <form class="space-y-6" method="POST" action="{{route('admin.login')}}" enctype="multipart/form-data">
+            @csrf
             <div class="space-y-4">
                 <div>
                     <div class="flex items-center mb-1">
