@@ -14,6 +14,6 @@ class BlogPost extends Model
         'image',
         'meta_title',
         'meta_description',
-        'created_at'
+        'status',
     ];
 }
